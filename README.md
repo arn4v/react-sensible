@@ -6,7 +6,6 @@ A collection of sensible, reuseable hooks that cover a vareity of use-cases.
   - [useOnClickOutside](#useonclickoutside)
   - [useIntersectionObserver](#useintersectionobserver)
   - [useMediaQuery](#usemediaquery)
-  - [useBreakpoints](#usebreakpoints)
   - [useDebounce](#usedebounce)
   - [useDisclosure](#usedisclosure)
 
@@ -17,6 +16,43 @@ A collection of sensible, reuseable hooks that cover a vareity of use-cases.
 ## useIntersectionObserver
 
 - **Use cases:** Pagination/Infinite scrolling, Virtualization
+
+- **Usage:**
+
+```tsx
+import { useIntersectionObserver } from "react-sensible";
+
+export default function Component() {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [data, setData] = React.useState([]);
+
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(/** Fetch data */).then((res) => res.json);
+    setData(data);
+  };
+
+  useIntersectionObserver({
+    root: null,
+    target: ref.current,
+    onIntersect() {
+      fetchData();
+    },
+  });
+
+  return (
+    <div>
+      {data.map((item) => {
+        return <div>{item}</div>;
+      })}
+      <div ref={ref}>Loading more</div>
+    </div>
+  );
+}
+```
 
 ## useMediaQuery
 
@@ -38,10 +74,6 @@ const Component = () => {
   );
 };
 ```
-
-## useBreakpoints
-
-- **Use cases:** Quick responsive layout using TailwindCSS breakpoints.
 
 ## useDebounce
 
