@@ -21,10 +21,8 @@ const useIntersectionObserver: UseInterSectionObserver = ({
   rootMargin = "0px",
   enabled = true,
 }) => {
-  const intersectionObserverRef = React.useRef<IntersectionObserver>(null);
-
   React.useEffect(() => {
-    if (!enabled || intersectionObserverRef.current) {
+    if (!enabled) {
       return;
     }
 
@@ -48,7 +46,6 @@ const useIntersectionObserver: UseInterSectionObserver = ({
 
     return () => {
       observer.unobserve(el);
-      intersectionObserverRef.current = null;
     };
   }, [target, enabled, root, rootMargin, threshold, onIntersect]);
 };

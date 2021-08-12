@@ -2,10 +2,10 @@ import * as React from "react";
 
 export type FilteredChildren = React.ReactElement<any, any>[];
 
-export default function useFilterChildren(
+const useFilterChildren = (
   children: React.ReactNode,
   target: React.ElementType
-) {
+) => {
   return React.useMemo(() => {
     const withTarget: FilteredChildren = [];
     const withoutTarget: React.ReactNode[] = React.Children.toArray(
@@ -21,4 +21,6 @@ export default function useFilterChildren(
 
     return [withTarget, withoutTarget];
   }, [children, target]);
-}
+};
+
+export default useFilterChildren;

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default function useMediaQuery(query: string) {
+const useMediaQuery = (query: string) => {
   const [matches, setMatches] = React.useState<boolean>(false);
 
   React.useEffect(() => {
@@ -14,4 +14,6 @@ export default function useMediaQuery(query: string) {
   }, [query]);
 
   return matches;
-}
+};
+
+export default useMediaQuery;
