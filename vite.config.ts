@@ -11,12 +11,14 @@ export default defineConfig({
       name: "react-sensible",
     },
     rollupOptions: {
-      external: Object.keys(require("./package.json").dependencies),
+      external: ["react", "react-dom", "framer-motion"],
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
           react: "React",
+          "react-dom": "ReactDOM",
+          "framer-motion": "motion",
         },
         dir: path.resolve(__dirname, "./dist"),
       },

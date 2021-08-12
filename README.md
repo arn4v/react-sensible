@@ -3,17 +3,49 @@
 A collection of sensible, reuseable hooks that cover a vareity of use-cases.
 
 - [react-sensible](#react-sensible)
-  - [useOnClickOutside](#useonclickoutside)
-  - [useIntersectionObserver](#useintersectionobserver)
-  - [useMediaQuery](#usemediaquery)
-  - [useDebounce](#usedebounce)
-  - [useDisclosure](#usedisclosure)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Components](#components)
+      - [Drawer](#drawer)
+      - [Modal](#modal)
+    - [Hooks](#hooks)
+      - [useOnClickOutside](#useonclickoutside)
+      - [useIntersectionObserver](#useintersectionobserver)
+      - [useMediaQuery](#usemediaquery)
+      - [useDebounce](#usedebounce)
+      - [useDisclosure](#usedisclosure)
 
-## useOnClickOutside
+## Installation
+
+```
+yarn add react-sensible framer-motion
+```
+
+## Usage
+
+### Components
+
+For components you will also need to import CSS
+
+```tsx App.tsx
+import "react-sensible/style.css";
+```
+
+#### Drawer
+
+TODO
+
+#### Modal
+
+TODO
+
+### Hooks
+
+#### useOnClickOutside
 
 - **Use cases:** Modal, Dropdown Menu, Context Menu
 
-## useIntersectionObserver
+#### useIntersectionObserver
 
 - **Use cases:** Pagination/Infinite scrolling, Virtualization
 
@@ -54,7 +86,7 @@ export default function Component() {
 }
 ```
 
-## useMediaQuery
+#### useMediaQuery
 
 - **Use cases:** Programmatic responsive layouts
 - **Usage:**
@@ -75,7 +107,7 @@ const Component = () => {
 };
 ```
 
-## useDebounce
+#### useDebounce
 
 - **Use cases:** API Calls on input value change
 - **Usage:**
@@ -96,7 +128,7 @@ export default function Component() {
 }
 ```
 
-## useDisclosure
+#### useDisclosure
 
 - **Credits:** Chakra UI
 
