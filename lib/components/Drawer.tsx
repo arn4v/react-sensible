@@ -91,51 +91,23 @@ export const DrawerContent: React.ForwardRefExoticComponent<DrawerContentProps> 
   React.forwardRef<HTMLDivElement, DrawerContentProps>(
     ({ children, placement, className }, ref) => {
       const [openVariant, closeVariant] = React.useMemo(() => {
-        if (placement === "bottom") {
-          return [
-            {
-              y: "0",
-            },
-            {
-              y: "100%",
-            },
-          ];
+        switch (placement) {
+          case "top": {
+            return [{ y: "0" }, { y: "-100%" }];
+          }
+          case "bottom": {
+            return [{ y: "0" }, { y: "100%" }];
+          }
+          case "left": {
+            return [{ x: "0" }, { x: "-100%" }];
+          }
+          case "right": {
+            return [{ x: "0" }, { x: "100%" }];
+          }
+          default: {
+            return [{}, {}];
+          }
         }
-
-        if (placement === "top") {
-          return [
-            {
-              y: "0",
-            },
-            {
-              y: "-100%",
-            },
-          ];
-        }
-
-        if (placement === "left") {
-          return [
-            {
-              x: "0",
-            },
-            {
-              x: "-100%",
-            },
-          ];
-        }
-
-        if (placement === "right") {
-          return [
-            {
-              x: "0",
-            },
-            {
-              x: "100%",
-            },
-          ];
-        }
-
-        return [{}, {}];
       }, [placement]);
 
       return (
