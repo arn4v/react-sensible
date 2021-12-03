@@ -28,7 +28,7 @@ yarn add react-sensible framer-motion
 For components you will also need to import CSS
 
 ```tsx App.tsx
-import "react-sensible/style.css";
+import 'react-sensible/style.css';
 ```
 
 #### Drawer
@@ -52,7 +52,7 @@ TODO
 - **Usage:**
 
 ```tsx
-import { useIntersectionObserver } from "react-sensible";
+import { useIntersectionObserver } from 'react-sensible';
 
 export default function Component() {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -63,7 +63,7 @@ export default function Component() {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(/** Fetch data */).then((res) => res.json);
+    const data = await fetch(/** Fetch data */).then(res => res.json);
     setData(data);
   };
 
@@ -77,7 +77,7 @@ export default function Component() {
 
   return (
     <div>
-      {data.map((item) => {
+      {data.map(item => {
         return <div>{item}</div>;
       })}
       <div ref={ref}>Loading more</div>
@@ -92,10 +92,10 @@ export default function Component() {
 - **Usage:**
 
 ```tsx
-import { useMediaQuery } from "react-sensible";
+import { useMediaQuery } from 'react-sensible';
 
 const Component = () => {
-  const isLarge = useMediaQuery("(min-width: 1024px)");
+  const isLarge = useMediaQuery('(min-width: 1024px)');
 
   return isLarge ? (
     /** Laptop UI */
@@ -113,18 +113,18 @@ const Component = () => {
 - **Usage:**
 
 ```tsx
-import * as React from "react";
-import { useDebounce } from "react-sensible";
+import * as React from 'react';
+import { useDebounce } from 'react-sensible';
 
 export default function Component() {
-  const [value, setValue] = React.useState<string>("");
+  const [value, setValue] = React.useState<string>('');
   const debouncedValue = useDebounce(value);
 
   React.useEffect(() => {
     // Run side-effect on debounced value (like an api call)
   }, [debouncedValue]);
 
-  return <input value={value} onChange={(e) => setValue(e.target.value)} />;
+  return <input value={value} onChange={e => setValue(e.target.value)} />;
 }
 ```
 
@@ -137,7 +137,7 @@ export default function Component() {
 - **Usage:**
 
 ```tsx
-import useDisclosure from "~/hooks/use-disclosure";
+import useDisclosure from '~/hooks/use-disclosure';
 
 const Component = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
